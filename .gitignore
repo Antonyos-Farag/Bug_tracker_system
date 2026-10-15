@@ -1,0 +1,31 @@
+# ── Build output ──────────────────────────────
+target/
+build/
+out/
+dist/
+*.class
+*.jar
+
+# ── IDE files ─────────────────────────────────
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+nbproject/
+bin/
+
+# ── OS files ──────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Logs / temp ───────────────────────────────
+*.log
+*.tmp
+hs_err_pid*
+
+# NOTE: users.txt and Bug.txt are intentionally TRACKED — they are the
+# application's runtime data files (seed data). The app rewrites them in the
+# working directory while it runs, so expect local modifications after use.

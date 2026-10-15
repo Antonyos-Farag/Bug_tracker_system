@@ -1,0 +1,5 @@
+1,Login Crash,App crashes on login,UI,High,Critical,BugTrack,2026-05-11,Open,developer,tester,
+2,Stats Missing,Dashboard stats not loading,Backend,Medium,Major,BugTrack,2026-05-11,Closed,developer,tester,
+3,Email Bug,Email notification not sent,Backend,Medium,Minor,BugTrack,2026-05-11,Closed,developer,tester,
+4,Play button,The play button doesnt work,UI,Medium,Major,GTA,2026-05-11,Open,,tony,D:\R.jpg
+5,123,12345,UI,Medium,Major,12341,2026-05-11,Closed,tony,tester,D:\R.jpg

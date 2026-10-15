@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bugtracker</groupId>
+    <artifactId>bug-tracker-system</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Bug Tracker System</name>
+    <description>
+        A role-based desktop Bug Tracking System built with Java and JavaFX.
+        Supports Tester, Developer, Project Manager and Admin roles, flat-file
+        persistence (users.txt / Bug.txt), screenshot attachments, email
+        notifications and performance insights.
+    </description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- The code uses Java 14+ switch expressions and Java 11+ Optional.isEmpty(),
+             so Java 17 (LTS) is the minimum supported release. -->
+        <maven.compiler.release>17</maven.compiler.release>
+        <!-- JavaFX 20+ is required for TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS -->
+        <javafx.version>21.0.4</javafx.version>
+        <main.class.gui>Main</main.class.gui>
+        <main.class.console>ConsoleMain</main.class.console>
+    </properties>
+
+    <dependencies>
+        <!-- JavaFX (GUI toolkit) — pulls in javafx-graphics and javafx-base transitively -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+
+        <!-- JavaMail — used by EmailService (imports javax.mail.*) -->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+            </plugin>
+
+            <!-- Run the JavaFX GUI:  mvn javafx:run -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>${main.class.gui}</mainClass>
+                </configuration>
+            </plugin>
+
+            <!-- Run the console (text-menu) version:  mvn exec:java -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <mainClass>${main.class.console}</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
